@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Calculadora - React Profissional</title>
+	</head>
+	<style>
+		html {
+			box-sizing: border-box;
+		}
+
+		*,
+		*:before,
+		*:after {
+			box-sizing: inherit;
+		}
+
+		body {
+			margin: 0;
+			background-color: #121212;
+			font-family: sans-serif;
+		}
+
+		.header {
+			background-color: #333;
+			text-align: center;
+			color: #fff;
+			padding: 16px;
+			border-radius: 4px;
+		}
+
+		.calculator {
+			background: #fff;
+			margin: 40px auto;
+			max-width: 400px;
+			padding: 16px;
+			border-radius: 4px;
+		}
+
+		.display {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 1.2em;
+		}
+
+		.keyboard {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 16px;
+			font-size: 16px;
+			font-weight: bold;
+			margin-top: 16px;
+		}
+
+		button {
+			border: 0;
+			border-radius: 4px;
+			background: #efefef;
+			padding: 8px;
+			cursor: pointer;
+		}
+	</style>
+
+	<body>
+		<div id="root"></div>
+
+		<script
+			crossorigin
+			src="https://unpkg.com/react@16/umd/react.development.js"
+		></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+		></script>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+		<script type="text/babel">
+			const Header = () => <div className="header">Calculadora</div>;
+
+			const Button = props => (
+				<button
+					onClick={() => {
+						props.onClick(props.value);
+					}}
+				>
+					{props.value}
+				</button>
+			);
+
+			const Calculator = () => {
+				const [display, setDisplay] = React.useState("");
+				const keyboard = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+
+				const handleNumberClick = value => {
+					setDisplay(`${display}${value}`);
+				};
+
+				return (
+					<div className="calculator">
+						<div className="display">{display}</div>
+						<div className="keyboard">
+							{keyboard.map(value => (
+								<Button key={value} value={value} onClick={handleNumberClick} />
+							))}
+						</div>
+					</div>
+				);
+			};
+			const App = () => (
+				<div>
+					<Header />
+					<Calculator />
+				</div>
+			);
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+	</body>
+</html>
