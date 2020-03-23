@@ -48,10 +48,9 @@
 
 		.keyboard {
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(5, 1fr);
 			grid-gap: 16px;
 			font-size: 16px;
-			font-weight: bold;
 			margin-top: 16px;
 		}
 
@@ -60,7 +59,21 @@
 			border-radius: 4px;
 			background: #efefef;
 			padding: 8px;
+			font-weight: bold;
 			cursor: pointer;
+		}
+
+		.span2 {
+			grid-column: span 2;
+		}
+
+		button.primary {
+			background-color: #ffeec2;
+			color: #c49023;
+		}
+
+		.error {
+			color: red;
 		}
 	</style>
 
@@ -78,33 +91,111 @@
 		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
 		<script type="text/babel">
+			const calcRegex = /^([0-9]|-|\+|\*|\/|\.)*$/;
+
 			const Header = () => <div className="header">Calculadora</div>;
 
-			const Button = props => (
+			const Button = ({ value, onClick, className }) => (
 				<button
 					onClick={() => {
-						props.onClick(props.value);
+						onClick(value);
 					}}
+					className={className}
 				>
-					{props.value}
+					{value}
 				</button>
 			);
 
 			const Calculator = () => {
 				const [display, setDisplay] = React.useState("");
-				const keyboard = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
+				const [error, setError] = React.useState();
 
-				const handleNumberClick = value => {
-					setDisplay(`${display}${value}`);
+				const keyboard = [
+					7,
+					8,
+					9,
+					"/",
+					"C",
+					4,
+					5,
+					6,
+					"*",
+					"Del",
+					1,
+					2,
+					3,
+					"-",
+					"",
+					0,
+					".",
+					"+",
+					"="
+				];
+
+				React.useEffect(() => {
+					if (error) {
+						setError();
+					}
+				}, [display]);
+
+				const doTheMath = () => {
+					try {
+						setDisplay("" + eval(display));
+					} catch (err) {
+						setError(`Invalid expression: ${err.message}`);
+					}
+				};
+
+				const handleClick = value => {
+					switch (value) {
+						case "=":
+							doTheMath();
+							break;
+						case "C":
+							setDisplay("");
+							break;
+						case "Del":
+							setDisplay(display.substring(0, display.length - 1));
+							break;
+						default:
+							setDisplay(`${display}${value}`);
+					}
 				};
 
 				return (
 					<div className="calculator">
-						<div className="display">{display}</div>
+						<input
+							type="text"
+							className="display"
+							value={display}
+							onChange={event => {
+								const { value } = event.target;
+								if (calcRegex.test(value)) {
+									setDisplay(event.target.value);
+								}
+							}}
+							onKeyPress={event => {
+								if (event.key === "Enter") {
+									doTheMath();
+								} else if (event.key.toLowerCase() === "c") {
+									setDisplay("");
+								}
+							}}
+						/>
+						{error && <p className="error">{error}</p>}
 						<div className="keyboard">
-							{keyboard.map(value => (
-								<Button key={value} value={value} onClick={handleNumberClick} />
-							))}
+							{keyboard.map(value => {
+								const span2Class = value === 0 ? "span2" : "";
+								const primaryClass = isNaN(value) ? "primary" : "";
+								return (
+									<Button
+										key={value}
+										value={value}
+										onClick={handleClick}
+										className={`${span2Class} ${primaryClass}`}
+									/>
+								);
+							})}
 						</div>
 					</div>
 				);
