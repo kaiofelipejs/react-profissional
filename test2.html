@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>Teste 2 - React Profissional</title>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"
+			integrity="sha256-FiZMk1zgTeujzf/+vomWZGZ9r00+xnGvOgXoj0Jo1jA="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js"
+			integrity="sha256-9RnErXq8KdNdvZ7471e/mnJkwhHwFvR7OPJwMdD4E9c="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js"
+			integrity="sha256-Ef0vObdWpkMAnxp39TYSLVS/vVUokDE8CDFnx7tjY6U="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.production.min.js"
+			integrity="sha256-zuSDvIPhgPCvDFw3HdbA58QUOOGxPbs4llUvBOPxvjY="
+			crossorigin="anonymous"
+		></script>
+		<script type="text/babel">
+			const Counter = ({ counter }) => {
+				return <p>Contador: {counter}</p>;
+			};
+
+			const App = () => {
+				const [counter, setCounter] = React.useState(0);
+				return (
+					<div>
+						<Counter counter={counter} />
+						<button type="button" onClick={() => setCounter(counter + 1)}>
+							Somar 1
+						</button>
+					</div>
+				);
+			};
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+	</body>
+</html>

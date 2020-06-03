@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<div id="root"></div>
+
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"
+			integrity="sha256-FiZMk1zgTeujzf/+vomWZGZ9r00+xnGvOgXoj0Jo1jA="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.8.3/polyfill.min.js"
+			integrity="sha256-9RnErXq8KdNdvZ7471e/mnJkwhHwFvR7OPJwMdD4E9c="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/react/16.12.0/umd/react.production.min.js"
+			integrity="sha256-Ef0vObdWpkMAnxp39TYSLVS/vVUokDE8CDFnx7tjY6U="
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.11.0/umd/react-dom.production.min.js"
+			integrity="sha256-zuSDvIPhgPCvDFw3HdbA58QUOOGxPbs4llUvBOPxvjY="
+			crossorigin="anonymous"
+		></script>
+		<script type="text/babel">
+			const setDocumentTitle = (newTitle) => {
+				document.title = newTitle;
+			};
+
+			const MyName = () => {
+				const [name, setName] = React.useState();
+
+				setName("Bruno Nardini");
+
+				return <p>Nome: {name}</p>;
+			};
+			const App = () => {
+				const [title, setTitle] = React.useState("");
+
+				React.useEffect(() => {
+					if (title) {
+						setDocumentTitle(title);
+					} else {
+						setDocumentTitle("React Profissional");
+					}
+				}, [title]);
+
+				return (
+					<div>
+						<input
+							type="text"
+							value={title}
+							onChange={(e) => setTitle(e.target.value)}
+						/>
+						<button onClick={() => setTitle("")}>Limpar</button>
+
+						<MyName />
+					</div>
+				);
+			};
+
+			ReactDOM.render(<App />, document.getElementById("root"));
+		</script>
+	</body>
+</html>
