@@ -1,10 +1,36 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { breakAt, BreakpointSize } from "./Breakpoints";
+
+const Root = styled.div`
+  color: #fff;
+  padding: 100px 0;
+
+  ${(props) => css`
+    background: url(${props.image}), rgba(0, 0, 0, 0.4);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+  `}
+`;
+
+const Container = styled.div`
+  width: 100%;
+  padding: 0 8px;
+
+  ${breakAt(BreakpointSize.sm)} {
+    padding: 0 16px;
+  }
+
+  ${breakAt(BreakpointSize.lg)} {
+    padding: 0;
+    width: 1140px;
+    margin: 0 auto;
+  }
+`;
 
 const Title = styled.h1`
-  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap");
-
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
 `;
@@ -28,13 +54,13 @@ const Content = styled.div`
   }
 `;
 
-const Hero = ({ title, children }) => (
-  <>
-    <div>
+const Hero = ({ image, title, children }) => (
+  <Root image={image}>
+    <Container>
       <Title>{title}</Title>
       <Content>{children}</Content>
-    </div>
-  </>
+    </Container>
+  </Root>
 );
 
 export default Hero;
