@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { breakAt, BreakpointSize } from "styles/Breakpoints";
+import { breakAt, BreakpointSizes } from "styles/Breakpoints";
 
 const colorYellow = "#ffc107";
 
@@ -21,11 +21,11 @@ const Container = styled.div`
   width: 100%;
   padding: 0 8px;
 
-  ${breakAt(BreakpointSize.sm)} {
+  ${breakAt(BreakpointSizes.sm)} {
     padding: 0 16px;
   }
 
-  ${breakAt(BreakpointSize.lg)} {
+  ${breakAt(BreakpointSizes.lg)} {
     padding: 0;
     width: 1140px;
     margin: 0 auto;
