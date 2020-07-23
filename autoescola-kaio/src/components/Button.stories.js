@@ -43,3 +43,63 @@ export const usage = () => (
     </Toolbar>
   </div>
 );
+
+export const outlined = () => (
+  <div>
+    <p>Enabled:</p>
+    <Toolbar>
+      <Button variant="outlined" {...events}>
+        Default
+      </Button>
+      <Button variant="outlined" color="primary" {...events}>
+        Primary
+      </Button>
+      <Button variant="outlined" color="danger" {...events}>
+        Danger
+      </Button>
+    </Toolbar>
+
+    <p>Disabled:</p>
+    <Toolbar>
+      <Button variant="outlined" disabled {...events}>
+        Default
+      </Button>
+      <Button variant="outlined" disabled color="primary" {...events}>
+        Primary
+      </Button>
+      <Button variant="outlined" disabled color="danger" {...events}>
+        Danger
+      </Button>
+    </Toolbar>
+  </div>
+);
+
+export const link = () => (
+  <div>
+    <p>Enabled:</p>
+    <Toolbar>
+      <Button variant="link" {...events}>
+        Default
+      </Button>
+      <Button variant="link" color="primary" {...events}>
+        Primary
+      </Button>
+      <Button variant="link" color="danger" {...events}>
+        Danger
+      </Button>
+    </Toolbar>
+
+    <p>Disabled:</p>
+    <Toolbar>
+      <Button variant="link" disabled {...events}>
+        Default
+      </Button>
+      <Button variant="link" disabled color="primary" {...events}>
+        Primary
+      </Button>
+      <Button variant="link" disabled color="danger" {...events}>
+        Danger
+      </Button>
+    </Toolbar>
+  </div>
+);
