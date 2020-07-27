@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCar, FaKey, FaMapMarkedAlt, FaAccessibleIcon } from "react-icons/fa";
 
+import Grid from "components/atoms/Grid";
 import Feature from "./Feature";
 
 export default {
@@ -15,7 +16,7 @@ export const usage = () => (
 );
 
 export const withGrid = () => (
-  <div>
+  <Grid sm={2} md={4}>
     <Feature icon={<FaCar />} title="Maior e melhor frota">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
     </Feature>
@@ -28,5 +29,5 @@ export const withGrid = () => (
     <Feature icon={<FaAccessibleIcon />} title="Acessibilidade">
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
     </Feature>
-  </div>
+  </Grid>
 );
