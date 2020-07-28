@@ -69,7 +69,7 @@ const Button = styled.button`
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: ${getMainColor};
+  background-color: ${getMainColor};
   border: 2px solid ${getMainColor};
   color: ${getColorText};
 
