@@ -8,7 +8,7 @@ exports[`render with color primary and variant link 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #ffc107;
+  background-color: #ffc107;
   border: 2px solid #ffc107;
   color: #212121;
   background-color: transparent;
@@ -50,7 +50,7 @@ exports[`render with color primary and variant outlined 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #ffc107;
+  background-color: #ffc107;
   border: 2px solid #ffc107;
   color: #212121;
   background-color: transparent;
@@ -88,7 +88,7 @@ exports[`renders with color danger 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #ff3d00;
+  background-color: #ff3d00;
   border: 2px solid #ff3d00;
   color: #212121;
 }
@@ -119,7 +119,7 @@ exports[`renders with color default 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   border: 2px solid #e0e0e0;
   color: #212121;
 }
@@ -150,7 +150,7 @@ exports[`renders with color primary 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #ffc107;
+  background-color: #ffc107;
   border: 2px solid #ffc107;
   color: #212121;
 }
@@ -181,7 +181,7 @@ exports[`renders with variant default 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   border: 2px solid #e0e0e0;
   color: #212121;
 }
@@ -212,7 +212,7 @@ exports[`renders with variant link 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   border: 2px solid #e0e0e0;
   color: #212121;
   background-color: transparent;
@@ -254,7 +254,7 @@ exports[`renders with variant outlined 1`] = `
   text-transform: uppercase;
   padding: 12px 36px;
   cursor: pointer;
-  background: #e0e0e0;
+  background-color: #e0e0e0;
   border: 2px solid #e0e0e0;
   color: #212121;
   background-color: transparent;
