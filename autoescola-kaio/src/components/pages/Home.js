@@ -8,8 +8,10 @@ import Button from "components/atoms/Button";
 import Grid from "components/atoms/Grid";
 import Feature from "components/atoms/Feature";
 import Section from "components/molecules/Section";
+import Footer from "components/organisms/Footer";
 
 import HeroImage from "assets/bg-car.jpg";
+import AboutVideo from "assets/about.mp4";
 
 const Home = () => (
   <>
@@ -46,6 +48,38 @@ const Home = () => (
         </Feature>
       </Grid>
     </Section>
+    <Section inverse>
+      <Heading>
+        <h2>Conheça nossos serviços</h2>
+      </Heading>
+    </Section>
+    <Section>
+      <Grid md={2}>
+        <div>
+          <Heading>
+            <h2>Auto escola Kaio</h2>
+          </Heading>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia
+            inventore cum provident iure, repellat sequi possimus, repudiandae
+            facilis consequuntur, dicta deleniti nobis beatae labore ipsum
+            voluptatem in iste eius ex.
+          </p>
+          <div>
+            <Button color="primary">Saiba mais</Button>
+          </div>
+        </div>
+        <div>
+          <video src={AboutVideo} width="100%" autoPlay loop></video>
+        </div>
+      </Grid>
+    </Section>
+    <Section inverse>
+      <Heading>
+        <h2>Dúvidas Recorrentes</h2>
+      </Heading>
+    </Section>
+    <Footer />
   </>
 );
 
