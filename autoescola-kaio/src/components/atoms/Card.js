@@ -45,14 +45,10 @@ CardMedia.propTypes = {
 const StyledCard = styled.div`
   background-color: #fff;
   border-radius: 4px;
+  overflow: hidden;
 `;
 
-const Card = ({ children }) => (
-  <StyledCard>
-    <div></div>
-    {children}
-  </StyledCard>
-);
+const Card = ({ children }) => <StyledCard>{children}</StyledCard>;
 
 Card.defaultProps = {
   children: undefined,
